@@ -6,7 +6,7 @@
     <link rel="icon" href="./img/Logo.jpg">
     <link rel="stylesheet" href="./style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Mô hình Tuấn Dev - Sản Phẩm</title>
+    <title>Mô hình Tuấn Dev - Phụ kiện</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-white min-h-screen">
@@ -18,8 +18,8 @@
         </a>
         <nav>
             <a href="./index.html" class="mx-5 text-xl relative">Trang chủ</a>
-            <a href="#" class="mx-5 text-xl relative">Sản phẩm</a>
-            <a href="./access.html" class="mx-5 text-xl relative">Phụ kiện</a>
+            <a href="./product.html" class="mx-5 text-xl relative">Sản phẩm</a>
+            <a href="#" class="mx-5 text-xl relative">Phụ kiện</a>
             <a href="./new-product.html" class="mx-5 text-xl relative">Mới về</a>
         </nav>
         <div class="icons">
@@ -29,8 +29,8 @@
         </div>
     </header>
 
-    <section class="bg-[url('./img/banner_product.jpg')] md:w-[60%] w-[70%] xl:h-[250px] md:h-[150px] h-[100px] mt-[90px] mx-auto
-            bg-cover bg-top rounded-md shadow-[5px_3px_20px_#000]">
+    <section class="bg-[url('./img/banner_access.jpg')] md:w-[60%] w-[70%] xl:h-[250px] md:h-[150px] h-[100px] mt-[90px] mx-auto
+            bg-cover bg-center rounded-md shadow-[5px_3px_20px_#000]">
     </section>
 
     <!-- All Product -->
@@ -38,16 +38,12 @@
         <i class='bx bx-menu-alt-left md:text-3xl text-2xl p-[2px_4px] cursor-pointer fixed bottom-[3%] text-white 
         rounded-[50%] left-[1%] bg-orange-500 z-50 animate-bounce hidden' id="sortIcon"></i>
         <section class="px-2 w-[225px] border border-[#aaa]" id="sort">
-            <button class="w-full my-2 h-[40px] bg-red-500 text-white font-bold">Sắp xếp theo:</button>
-            <li class="my-[10px] select-none border-2 border-blue-400 text-blue-500 p-2 rounded-xl cursor-pointer text-center hover:bg-blue-400 hover:text-white ease-linear duration-300" onclick="SortType('All')">Tất cả sản phẩm</li>
-            <li class="my-[10px] select-none border-2 border-blue-400 text-blue-500 p-2 rounded-xl cursor-pointer text-center hover:bg-blue-400 hover:text-white ease-linear duration-300" onclick="SortType('One Piece')">One Piece</li>
-            <li class="my-[10px] select-none border-2 border-blue-400 text-blue-500 p-2 rounded-xl cursor-pointer text-center hover:bg-blue-400 hover:text-white ease-linear duration-300" onclick="SortType('Naruto')">Naruto</li>
-            <li class="my-[10px] select-none border-2 border-blue-400 text-blue-500 p-2 rounded-xl cursor-pointer text-center hover:bg-blue-400 hover:text-white ease-linear duration-300" onclick="SortType('Dragon Ball')">Dragon Ball</li>
-            <li class="my-[10px] select-none border-2 border-blue-400 text-blue-500 p-2 rounded-xl cursor-pointer text-center hover:bg-blue-400 hover:text-white ease-linear duration-300" onclick="SortPrice('-1tr')">Dưới 1 triệu</li>
-            <li class="my-[10px] select-none border-2 border-blue-400 text-blue-500 p-2 rounded-xl cursor-pointer text-center hover:bg-blue-400 hover:text-white ease-linear duration-300" onclick="SortPrice('-2tr')">Dưới 2 triệu</li>
-            <li class="my-[10px] select-none border-2 border-blue-400 text-blue-500 p-2 rounded-xl cursor-pointer text-center hover:bg-blue-400 hover:text-white ease-linear duration-300" onclick="SortPrice('+2tr')">Trên 2 triệu</li>
-            <li class="my-[10px] select-none border-2 border-blue-400 text-blue-500 p-2 rounded-xl cursor-pointer text-center hover:bg-blue-400 hover:text-white ease-linear duration-300" onclick="SortPrice('price++')">Giá tăng dần</li>
-            <li class="my-[10px] select-none border-2 border-blue-400 text-blue-500 p-2 rounded-xl cursor-pointer text-center hover:bg-blue-400 hover:text-white ease-linear duration-300" onclick="SortPrice('price--')">Giá giảm dần</li>
+            <button class="w-full my-2 h-[40px] bg-red-500 text-white font-bold" onclick="SortType('All')">Chúng tôi có:</button>
+            <li class="my-[10px] select-none border-2 border-blue-400 text-blue-500 p-2 rounded-xl cursor-pointer text-center hover:bg-blue-400 hover:text-white ease-linear duration-300" onclick="SortType('Hoodie')">Áo hoodie</li>
+            <li class="my-[10px] select-none border-2 border-blue-400 text-blue-500 p-2 rounded-xl cursor-pointer text-center hover:bg-blue-400 hover:text-white ease-linear duration-300" onclick="SortType('T-shirt')">Áo thun</li>
+            <li class="my-[10px] select-none border-2 border-blue-400 text-blue-500 p-2 rounded-xl cursor-pointer text-center hover:bg-blue-400 hover:text-white ease-linear duration-300" onclick="SortType('MH_Mini')">Mô hình Mini</li>
+            <li class="my-[10px] select-none border-2 border-blue-400 text-blue-500 p-2 rounded-xl cursor-pointer text-center hover:bg-blue-400 hover:text-white ease-linear duration-300" onclick="SortType('Mouse')">Lót chuột</li>
+            <li class="my-[10px] select-none border-2 border-blue-400 text-blue-500 p-2 rounded-xl cursor-pointer text-center hover:bg-blue-400 hover:text-white ease-linear duration-300" onclick="SortType('Key')">Móc khóa</li>
         </section>
 
         <section class="grid grid-cols-4 flex-1 md:gap-4 gap-3 " id="products">
@@ -100,6 +96,6 @@
         </div>
     </footer>
     <script src="./js/main.js"></script>
-    <script src="./js/product.js"></script>
+    <script src="./js/access.js"></script>
 </body>
 </html>

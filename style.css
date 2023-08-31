@@ -43,6 +43,12 @@ footer{
     background-image: linear-gradient(to right, #000000ad , #000000ad), url(./img/footer.jpg);
 }
 
+@keyframes fadeIn{
+    0%{
+        transform: scale(.5) translateY(-10px);
+    }
+}
+
 @media screen and (max-width: 1040px){
     .contain{
         padding: 0 5%;
@@ -103,9 +109,9 @@ footer{
         box-shadow: 0 3px 10px #000;
         border: none;
         height: 100%;
-        left: 0;
         z-index: 100;
         background: #fff;
+        overflow-y: scroll;
         transition: left .5s linear;
     }
     #sort.open{

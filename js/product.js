@@ -170,7 +170,7 @@ function RanDomProduct() {
 
 function AddProduct(product) {
     let proItem = document.createElement('div')
-    proItem.className = 'bg-white shadow-[0_0_15px_#bbb] max-h-[330px] hover:shadow-[0px_0px_10px_#454545] duration-300 relative'
+    proItem.className = 'bg-white shadow-[0_0_15px_#bbb] max-h-[330px] hover:shadow-[0px_0px_10px_#454545] animate-[fadeIn_.5s_linear] duration-300 relative'
     proItem.innerHTML = `
             <div class="w-full max-h-[200px] overflow-hidden">
                 <img src="${product.image}" 
@@ -224,6 +224,10 @@ function SortType(type) {
         if (type === product.type)
             AddProduct(product)
     })
+
+    if (type === "All") {
+        PageIndex(1)
+    }
 }
 // Sort theo Price (Gia)
 function SortPrice(price){
@@ -270,7 +274,7 @@ function SortPrice(price){
     }
 }
 
-// Open and Close Box Sort
+// Open and Close Box Sort => Reponsive
 let sortBox = document.getElementById('sort')
 document.getElementById('sortIcon').addEventListener("click", function(){
     sortBox.classList.add('open')
