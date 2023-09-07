@@ -1,6 +1,7 @@
 let listProduct = [
     // One Piece
     {
+        id: 0,
         name: "Mô Hình Monkey D Luffy Gear 5 Nika Cầm Tia Sét Cao 46cm - Mô hình One Piece",
         image: "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljrxq52sppmqf8",
         type: "One Piece",
@@ -178,8 +179,8 @@ function AddProduct(product) {
             </div>
             <h3 class="mb-4 mt-2 px-2 text-base cursor-pointer line-clamp-2">${product.name}</h3>
             <h4 class="px-2 pb-3 pt-4 text-[17px] border-t border-[#aaa] font-bold text-[#ff0000]">${FormatPrice(product.price)}₫</h4>
-            <i class='bx bxs-plus-circle md:text-[32px] text-[28px] text-green-600 absolute bottom-[10px] right-2 cursor-pointer' title="Add To Cart"></i>`
-    
+            <i class='bx bxs-plus-circle md:text-[32px] text-[28px] text-green-600 absolute bottom-[10px] right-2 cursor-pointer
+              active:text-red-600 add-cart' title="Add To Cart"></i>`
     
     document.getElementById('products').appendChild(proItem)
 }

@@ -114,7 +114,8 @@ function AddProduct(product) {
             </div>
             <h3 class="mb-4 mt-2 px-2 text-base cursor-pointer line-clamp-2">${product.name}</h3>
             <h4 class="px-2 pb-3 pt-4 text-[17px] border-t border-[#aaa] font-bold text-[#ff0000]">${FormatPrice(product.price)}₫</h4>
-            <i class='bx bxs-plus-circle md:text-[32px] text-[28px] text-green-600 absolute bottom-[10px] right-2 cursor-pointer' title="Add To Cart"></i>`
+            <i class='bx bxs-plus-circle md:text-[32px] text-[28px] text-green-600 absolute bottom-[10px] right-2 cursor-pointer
+             active:text-red-600 add-cart' title="Add To Cart"></i>`
     
     
     document.getElementById('products').appendChild(proItem)

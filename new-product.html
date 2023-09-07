@@ -24,9 +24,24 @@
         </nav>
         <div class="icons">
             <i class='bx bx-search-alt-2 mx-[10px] text-[28px] cursor-pointer'></i>
-            <i class='bx bx-shopping-bag mx-[10px] text-[28px] cursor-pointer'></i>
+            <i class='bx bx-shopping-bag mx-[10px] text-[28px] cursor-pointer relative'></i>
             <i class='bx bx-user mx-[10px] text-[28px] cursor-pointer'></i>
         </div>
+
+        <!-- ADD TO MY CART -->
+        <section class="fixed top-0 min-h-screen max-w-[400px] w-full p-5 bg-white shadow-[-1px_0_10px_#aaa]" id="cart">
+            <h2 class="text-center text-[var(--main-color)] text-3xl font-semibold m-[2rem_0_1rem]">Giỏ hàng</h2>
+            <div class="flex flex-col overflow-y-scroll max-h-[60vh]" id="cart-content">
+                
+            </div>
+            <div class="flex justify-end mt-6 border-t border-[#000]">
+                <div class="text-[1.2rem] font-semibold my-4">Tổng</div>
+                <div class="text-[1.075rem] m-[1.1rem_0_0_0.7rem]" id="total">0₫</div>
+            </div>
+            <button class="bg-red-600 m-[1rem_auto] p-[12px_20px] w-2/4 text-center border-none outline-none 
+                    rounded-[2rem] text-white text-base font-medium cursor-pointer flex justify-center">Mua ngay</button>
+            <i class='bx bx-x mx-[10px] absolute top-4 right-3 text-[2rem] text-red-600 cursor-pointer'></i>
+        </section>
     </header>
 
     <section class="bg-[url('./img/banner_product.jpg')] md:w-[60%] w-[70%] xl:h-[250px] md:h-[150px] h-[100px] mt-[90px] mx-auto
