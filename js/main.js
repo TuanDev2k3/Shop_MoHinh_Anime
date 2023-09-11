@@ -39,7 +39,7 @@ function ready(){
 
     // Open And Close Account (Tai Khoan)
     document.querySelector('.icons i:nth-child(3)').addEventListener('click', ()=>{
-        window.location.href = "../account.html"
+        window.location.href = "./account.html"
     })
 
     CreateNotifyBox();
