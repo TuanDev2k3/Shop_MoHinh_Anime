@@ -152,3 +152,19 @@ sortBox.addEventListener('mousedown', function(){
     }, 100)
         
 })
+
+// ====== Chuc Nang Search =====
+function SearchData(){
+    let value = document.querySelector('#search input').value.trim().toLowerCase()
+    let content = document.getElementById('products')
+    while(content.hasChildNodes()){
+        content.removeChild(content.firstChild);
+    }
+
+    listAccess.forEach(product =>{
+        if (product.name.toLowerCase().includes(value))
+            AddProduct(product)
+    })
+    // Close Box Search
+    document.getElementById('search').classList.remove('open')
+}

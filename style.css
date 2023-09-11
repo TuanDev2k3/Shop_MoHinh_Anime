@@ -62,13 +62,29 @@ footer{
     right: -10px;
     width: 20px;
     height: 20px;
-    background: red;
+    background: #ff0000;
     border-radius: 50%;
     color: #fff;
     font-size: 12px;
     font-family: 'Poppins';
     display: grid;
     place-items: center;
+}
+#search input::placeholder{
+    color: #ff0000;
+}
+
+#search.open{
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    transition: all .3s ease;
+}
+.error{
+    border-bottom: 3px solid red !important;
+}
+.show{
+   opacity: 1 !important;
 }
 @keyframes fadeIn{
     0%{
@@ -166,6 +182,9 @@ footer{
     #products{
         margin-bottom: 20px !important;
     }
+    #search h1{
+        font-size: 55px;
+    }
 }
 @media screen and (max-width: 650px){
     #infoImg{
@@ -173,6 +192,22 @@ footer{
     }
     #products > div h4{
         font-size: 15px;
+    }
+    #search input{
+        width: 450px;
+        height: 60px;
+        font-size: 18px !important;
+    }
+    #search h1{
+        font-size: 50px;
+    }
+    #search button{
+        width: 140px;
+        height: 48px;
+        font-size: 18px;
+    }
+    #account >form{
+        box-shadow: none;
     }
 }
 @media screen and (max-width: 500px){
@@ -218,10 +253,59 @@ footer{
     #sortIcon{
         bottom: 5%;
     }
+    #search input{
+        width: 390px;
+        height: 55px;
+        margin-bottom: 40px;
+        font-size: 16px !important;
+    }
+    #search h1{
+        font-size: 46px;
+    }
+    #search button{
+        width: 130px;
+        height: 46px;
+        font-size: 18px;
+    }
 }
 @media screen and (max-width: 430px){
     #products > div h4{
         padding: 12px 8px 10px;
+    }
+    #cart{
+        max-width: none;
+    }
+    #search input{
+        width: 340px;
+        height: 50px;
+        font-size: 15px !important;
+        padding: 15px;
+    }
+    #search h1{
+        font-size: 42px;
+    }
+    #search button{
+        width: 125px;
+        height: 44px;
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 380px){
+    #search input{
+        width: 320px;
+        height: 48px;
+        font-size: 15px !important;
+        padding: 15px;
+        margin-bottom: 30px;
+    }
+    #search button{
+        width: 120px;
+        height: 42px;
+        font-size: 15px;
+    }
+    #search i{
+        font-size: 40px;
+        right: 15px;
     }
 }
 @media screen and (max-width: 340px){
@@ -238,4 +322,18 @@ footer{
         bottom: 5px;
         font-size: 26px;
     }
+    #search input{
+        width: 290px;
+        height: 46px;
+        font-size: 15px !important;
+        padding: 15px;
+    }
+    #search h1{
+        font-size: 40px;
+    }
+    #search button{
+        width: 110px;
+        height: 40px;
+        font-size: 15px;
+    } 
 }

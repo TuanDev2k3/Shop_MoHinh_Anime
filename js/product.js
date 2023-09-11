@@ -8,13 +8,13 @@ let listProduct = [
         price: "1249000"
     },
     {
-        name: "Mô hình Ace Hỏa Quyền Chiến Đấu, Có Led, Cao 30 cm - Mô hình OnePiece",
+        name: "Mô hình Ace Hỏa Quyền Chiến Đấu, Có Led, Cao 30 cm - Mô hình One Piece",
         image: "https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-lj9o1lz56ut676",
         type: "One Piece",
         price: "2519000"
     },
     {
-        name: "Mô hình Mô hình Sanji Máu Nóng cực cháy, Có Led, Cao 48 cm - Mô hình OnePiece",
+        name: "Mô hình Mô hình Sanji Máu Nóng cực cháy, Có Led, Cao 48 cm - Mô hình One Piece",
         type: "One Piece",
         image: "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-leyinzetupai1f",
         price: "1330000"
@@ -26,13 +26,13 @@ let listProduct = [
         price: "510000"
     },
     {
-        name: "Mô hình Zoro Wano trên mái nhà, Có bản LED, cao 22 cm, có hộp màu",
+        name: "Mô hình Zoro Wano One Piece trên mái nhà, Có bản LED, cao 22 cm, có hộp màu",
         image: "https://down-vn.img.susercontent.com/file/vn-11134201-7qukw-leu6gze6mkqyab",
         type: "One Piece",
         price: "2419000"
     },
     {
-        name: "Mô hình Sanji đen bản cao cấp, cao 36cm nặng 1.6kg - Mô hình OnePiece",
+        name: "Mô hình Sanji đen bản cao cấp, cao 36cm nặng 1.6kg - Mô hình One Piece",
         image: "https://down-vn.img.susercontent.com/file/sg-11134201-22090-7e8zsqqqwyhv8e",
         type: "One Piece",
         price: "480000"
@@ -153,6 +153,7 @@ let listProduct = [
 // Load product tu list vao website
 RanDomProduct()
 PageIndex(1)
+// listProduct.forEach(pro => AddProduct(pro))
 
 function RanDomProduct() {
     let index, temp, length = listProduct.length
@@ -286,3 +287,19 @@ sortBox.addEventListener('mousedown', function(){
     }, 100)
         
 })
+
+//===== Chuc Nang Search =======
+function SearchData(){
+    let value = document.querySelector('#search input').value.trim().toLowerCase()
+    let content = document.getElementById('products')
+    while(content.hasChildNodes()){
+        content.removeChild(content.firstChild);
+    }
+
+    listProduct.forEach(product =>{
+        if (product.name.toLowerCase().includes(value))
+            AddProduct(product)
+    })
+    // Close Box Search
+    document.getElementById('search').classList.remove('open')
+}

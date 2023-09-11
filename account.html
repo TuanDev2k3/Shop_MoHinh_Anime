@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/Logo.jpg">
+    <link rel="stylesheet" href="./style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Mô hình Tuấn Dev - Tài khoản</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white min-h-screen">
+    <header class="py-3 contain bg-white w-full flex items-center justify-between fixed top-0 left-0 z-[50]">
+        <i class='bx bx-menu text-4xl cursor-pointer hidden' id="menu"></i>
+        <a href="#" class="flex items-center">
+            <img src="./img/Logo.jpg" class="w-[45px] object-cover mb-2">
+            <span class="text-[28px] font-bold text-[var(--main-color)] ml-1">TuanDeV</span>
+        </a>
+        <nav>
+            <a href="./index.html" class="mx-5 text-xl relative">Trang chủ</a>
+            <a href="./product.html" class="mx-5 text-xl relative">Sản phẩm</a>
+            <a href="./access.html" class="mx-5 text-xl relative">Phụ kiện</a>
+            <a href="./new-product.html" class="mx-5 text-xl relative">Mới về</a>
+        </nav>
+        <div class="icons">
+            <i class='bx bx-search-alt-2 mx-[10px] text-[28px] cursor-pointer hidden'></i>
+            <i class='bx bx-shopping-bag mx-[10px] text-[28px] cursor-pointer relative'></i>
+            <i class='bx bx-user mx-[10px] text-[28px] cursor-pointer'></i>
+        </div>
+
+    </header>
+
+    <!-- All Product -->
+    <section class="fixed z-10 top-0 left-0 bg-[#fff] w-full min-h-screen grid place-content-center" id="account">
+        <!-- Dang nhap (Login Up) -->
+        <form action="" class="bg-white mt-9 w-[350px] min-h-[460px] rounded-xl p-[20px_30px] shadow-[0_0_5px_#222] relative" id="login">
+            <h1 class="m-5 text-center text-[#000] text-3xl font-black tracking-wider">Đăng nhập</h1>
+            <div class="relative w-full mt-3">
+                <i class='bx bxs-x-circle absolute top-1/3 text-red-600 opacity-0 right-2 select-none duration-300 text-[20px] '></i>
+                <input type="text" class="relative w-full p-[15px_10px_10px] text-base bg-transparent outline-none 
+                border-b-2 border-[#000] text-black duration-500 placeholder:text-[#aaa] idName" placeholder="Name" required>
+            </div>
+            <div class="relative w-full mt-5">
+                <i class='bx bxs-x-circle absolute top-1/3 text-red-600 opacity-0 right-2 select-none duration-300 text-[20px] '></i>
+                <input type="password" class="relative w-full p-[15px_10px_10px] text-base bg-transparent outline-none 
+                border-b-2 border-[#000] text-black duration-500 placeholder:text-[#aaa] idPass" placeholder="Password" required>
+            </div>
+            <div class="flex justify-between m-[12px_0_15px] text-[14px] font-normal text-black cursor-pointer select-none">
+                <label class="select-none cursor-pointer">
+                    <input type="checkbox" class="accent-red-500 mr-1 cursor-pointer">
+                    Ghi nhớ mật khẩu
+                </label>
+                <a class="hover:underline hover:text-blue-500">Forget Password</a>
+            </div>
+            <button type="button" class="mt-3 select-none w-full h-10 text-[15px] text-white bg-black shadow-[0_0_3px] rounded-sm outline-none duration-300 ease-linear
+            hover:bg-red-500" onclick="LoginUpAccount()">Đăng nhập ngay</button>
+            <div class="absolute bottom-5 left-[20%] text-[#8f8f8f] font-light text-[15px]">
+                Tôi chưa có tài khoản!
+                <a onclick="LoginOrSign('sign')" class="cursor-pointer text-black inline-block ml-1 hover:underline select-none">Đăng kí</a>
+            </div>
+        </form>
+
+        <!-- Dang Ki (Sign Up) -->
+        <form action="" class="hidden bg-white mt-9 w-[350px] min-h-[460px] rounded-xl p-[20px_30px] shadow-[0_0_5px_#222] relative" id="sign">
+            <h1 class="m-5 text-center text-[#000] text-3xl font-black tracking-wider">Đăng kí</h1>
+            <div class="relative w-full mt-3">
+                <i class='bx bxs-x-circle absolute top-1/3 text-red-600 opacity-0 right-2 select-none duration-300 text-[20px] '></i>
+                <input type="text" class="relative w-full p-[15px_10px_10px] text-base bg-transparent outline-none 
+                border-b-2 border-[#000] text-black duration-500 placeholder:text-[#aaa] idName" placeholder="Name" required>
+            </div>
+            <div class="relative w-full mt-5">
+                <i class='bx bxs-x-circle absolute top-1/3 text-red-600 opacity-0 right-2 select-none duration-300 text-[20px] '></i>
+                <input type="password" class="relative w-full p-[15px_10px_10px] text-base bg-transparent outline-none 
+                border-b-2 border-[#000] text-black duration-500 placeholder:text-[#aaa] idPass" placeholder="Password" required>
+            </div>
+            <div class="relative w-full mt-5">
+                <i class='bx bxs-x-circle absolute top-1/3 text-red-600 opacity-0 right-2 select-none duration-300 text-[20px] '></i>
+                <input type="password" class="relative w-full p-[15px_10px_10px] text-base bg-transparent outline-none 
+                border-b-2 border-[#000] text-black duration-500 placeholder:text-[#aaa] idPass2" placeholder="Password" required>
+            </div>
+            <div class="flex justify-between m-[12px_0_15px] text-[14px] font-normal text-black cursor-pointer select-none">
+                <label class="select-none cursor-pointer">
+                    <input type="checkbox" class="accent-red-500 mr-1 cursor-pointer">
+                    Tôi đồng ý với điều khoản
+                </label>
+            </div>
+            <button class="mt-3 select-none w-full h-10 text-[15px] text-white bg-black shadow-[0_0_3px] rounded-sm outline-none duration-300 ease-linear
+            hover:bg-red-500" onclick="SignUpAccount()">Đăng kí ngay</button>
+            <div class="absolute bottom-5 left-[20%] text-[#8f8f8f] font-light text-[15px]">
+                Tôi đã có tài khoản!
+                <a onclick="LoginOrSign('login')" class="cursor-pointer text-black inline-block ml-1 hover:underline select-none">Đăng nhập</a>
+            </div>
+        </form>
+    </section>
+
+    <section class="hidden relative z-10 top-0 left-0 bg-[#fff] text-center w-full min-h-screen pb-[100px] overflow-y-scroll" id="profile">
+        <div class="w-full sm:h-[300px] h-[250px] bg-gradient-to-r from-[#3f2b96] to-[#a8c0ff] relative">
+            <img src="https://i.pinimg.com/280x280_RS/23/2a/ce/232ace9c3c523f00e28dd242565bd4de.jpg" 
+            class="sm:w-[220px] w-[150px] object-cover object-center rounded-full bor absolute bottom-0 left-2/4 translate-y-1/4 
+            -translate-x-2/4 border-[3px] border-white">
+        </div>
+        <h1 class="sm:my-12 mt-8 mb-10 text-center sm:text-[70px] text-[40px] font-bold sm:tracking-[0.2rem] line-clamp-1 tracking-normal">Tuan Dev</h1>
+        <div class="contain flex justify-around">
+            <div class="max-w-[250px] w-full sm:mx-3 mx-[6px] md:h-[240px] sm:h-[200px] h-[100px] shadow-[0_0_3px] overflow-hidden rounded-md">
+                <div class="bg-red-600 h-[30%] grid place-content-center font-semibold text-white sm:text-[20px] text-[15px]">Đang giao</div>
+                <div class="w-full h-[70%] bg-[#fff] text-red-500 font-semibold md:text-[60px] sm:text-[45px] text-[30px] grid place-content-center">0</div>
+            </div>
+            <div class="max-w-[250px] w-full sm:mx-3 mx-[6px] md:h-[240px] sm:h-[200px] h-[100px] shadow-[0_0_3px] overflow-hidden rounded-md">
+                <div class="bg-green-600 h-[30%] grid place-content-center font-semibold text-white sm:text-[20px] text-[15px]">Đã mua</div>
+                <div class="w-full h-[70%] bg-[#fff] text-green-500 font-semibold md:text-[60px] sm:text-[45px] text-[30px] grid place-content-center">0</div>
+            </div>
+            <div class="max-w-[250px] w-full sm:mx-3 mx-[6px] md:h-[240px] sm:h-[200px] h-[100px] shadow-[0_0_3px] overflow-hidden rounded-md">
+                <div class="bg-yellow-500 h-[30%] grid place-content-center font-semibold text-white sm:text-[20px] text-[15px]">Đã hủy</div>
+                <div class="w-full h-[70%] bg-[#fff] text-yellow-400 font-semibold md:text-[60px] sm:text-[45px] text-[30px] grid place-content-center">0</div>
+            </div>
+        </div>
+        <button class="mt-6 sm:mt-10 cursor-pointer bg-red-500 sm:w-[200px] w-[150px] sm:h-[50px] h-[40px] sm:text-[1rem] text-[14px] text-white rounded-[10px]"
+        onclick="IsLoginFalse()">Đăng xuất ngay</button>
+
+        <div class="text-center shadow-[0_0_3px] py-3 bg-yellow-100 select-none text-black absolute left-0 bottom-0 w-full">
+            © Deisgn by Uong Minh Khai - TuanDeV
+        </div>
+    </section>
+   
+    <script src="./js/main.js"></script>
+    <script src="./js/account.js"></script>
+</body>
+</html>

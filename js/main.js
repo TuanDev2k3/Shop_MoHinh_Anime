@@ -23,14 +23,6 @@ menu.addEventListener('click', ()=>{
 
 //============ ADD TO CART ===========
 
-// OPEN OR CLOSE CART
-document.querySelector('.icons i:nth-child(2)').addEventListener('click',()=>{
-    document.getElementById('cart').classList.add('open')
-})
-document.querySelector('#cart > i').addEventListener('click', ()=>{
-    document.getElementById('cart').classList.remove('open')
-})
-
 if (document.readyState == "loading"){
     document.addEventListener("DOMContentLoaded", ready);
 }
@@ -44,8 +36,95 @@ function ready(){
         var btn = addCart[i];
         btn.addEventListener("click", AddCartClick);
     }
+
+    // Open And Close Account (Tai Khoan)
+    document.querySelector('.icons i:nth-child(3)').addEventListener('click', ()=>{
+        window.location.href = "../account.html"
+    })
+
     CreateNotifyBox();
-    LoadToCart()
+    CreateSearchBox();
+    CreateCartBox();
+    LoadToCart();
+}
+
+// Create Elements
+function CreateNotifyBox(){
+    let notifys = document.createElement('section')
+    notifys.className = "fixed top-20 left-2 z-50"
+    notifys.setAttribute("id", "notifys")
+    document.body.appendChild(notifys)
+}
+
+function CreateSearchBox(){
+    let search = document.createElement('section')
+    search.className = "fixed top-0 scale-50 opacity-0 pointer-events-none left-0 bg-[#000000de] w-full min-h-screen z-50 grid place-content-center"
+    search.setAttribute("id", "search")
+    search.innerHTML = `<i class='bx bx-x cursor-pointer select-none absolute top-5 right-6 text-5xl text-white active:text-red-600'></i>
+    <h1 class="text-center text-6xl font-bold">Tìm kiếm</h1>
+    <input type="search" placeholder="Bạn muốn mua gì..."
+    class="md:w-[700px] w-[600px] md:h-[70px] h-[60px] rounded-md text-[20px] text-red-600 border-none outline-none p-5 m-[50px_30px]">
+    <button class="w-[150px] text-white text-xl h-[50px] mx-auto bg-green-500 rounded-full 
+    hover:bg-green-700" onclick="SearchData()">Search</button>`
+    document.body.appendChild(search)
+
+    // ========== CHUC NANG SEARCH ============
+    document.querySelector('.icons i:nth-child(1)').addEventListener('click', ()=>{
+        document.getElementById('search').classList.add('open')
+        document.querySelector('#search input').focus()
+    })
+    document.querySelector('#search i').addEventListener('click',()=>{
+        document.getElementById('search').classList.remove('open')
+        document.querySelector('#search input').value = ''
+    })
+}
+
+function CreateCartBox() {
+    let cart = document.createElement('section')
+    cart.className = "fixed top-0 min-h-screen max-w-[400px] w-full p-5 bg-white shadow-[-1px_0_10px_#aaa]"
+    cart.setAttribute("id", "cart")
+    cart.innerHTML = `<h2 class="text-center text-[var(--main-color)] text-3xl font-semibold m-[2rem_0_1rem]">Giỏ hàng</h2>
+    <div class="flex flex-col overflow-y-scroll max-h-[60vh]" id="cart-content">
+        
+    </div>
+    <div class="flex justify-end mt-6 border-t border-[#000]">
+        <div class="text-[1.2rem] font-semibold my-4">Tổng</div>
+        <div class="text-[1.075rem] m-[1.1rem_0_0_0.7rem]" id="total">0₫</div>
+    </div>
+    <button class="bg-red-600 m-[1rem_auto] p-[12px_20px] w-2/4 text-center border-none outline-none 
+            rounded-[2rem] text-white text-base font-medium cursor-pointer flex justify-center">Mua ngay</button>
+    <i class='bx bx-x mx-[10px] absolute top-4 right-3 text-[2rem] text-red-600 cursor-pointer'></i>`
+    document.querySelector('header').appendChild(cart)
+
+    // OPEN OR CLOSE CART
+    document.querySelector('.icons i:nth-child(2)').addEventListener('click',()=>{
+        document.getElementById('cart').classList.add('open')
+    })
+    document.querySelector('#cart > i').addEventListener('click', ()=>{
+        document.getElementById('cart').classList.remove('open')
+    })
+}
+
+function CreateNotify(status, mess){
+    let notify = document.createElement('div')
+    notify.className = "sm:max-w-[320px] max-w-[250px] w-full flex items-center sm:p-5 p-3 bg-white rounded-md sm:mb-4 mb-2 relative shadow-[3px_-3px_5px_#000000c1] animate-[scrollShow_1s_linear_forwards]"
+    switch (status){
+        case "true":
+            notify.innerHTML = `<i class='bx bxs-check-circle text-green-500 mr-[10px] sm:text-[35px] text-[25px]'></i>
+                    <h3 class="text-green-500 font-medium sm:text-xl text-base">${mess}</h3>
+                    <span class="absolute left-0 bottom-0 w-full h-1 animate-[countdown_2s_linear_forwards_0.5s] bg-green-500"></span>`
+            break;
+        case "false":
+            notify.innerHTML = `<i class='bx bxs-error text-red-500 mr-[10px] sm:text-[35px] text-[25px]'></i>
+                    <h3 class="text-red-500 font-medium sm:text-xl text-base">${mess}</h3>
+                    <span class="absolute left-0 bottom-0 w-full h-1 animate-[countdown_2s_linear_forwards_0.5s] bg-red-500"></span>`
+            break;
+    }
+    
+    document.getElementById('notifys').appendChild(notify)
+    setTimeout(function(){
+        notify.remove()
+    }, 3000)
 }
 
 // Remove Cart Item
@@ -102,40 +181,10 @@ function AddProductToCart(title, price, imgProduct){
     CartItems.appendChild(CartShopBox);
     CartShopBox.querySelectorAll('.bx-trash')[0].addEventListener('click', RemoveCart);
     CartShopBox.querySelectorAll('input')[0].addEventListener('change', quantityChanged);
-    // CreateNotify("true", "Đã thêm thành công");
 
     UpdateTotal();
     SaveCart();
     UpdateCartIcon();
-}
-
-function CreateNotifyBox(){
-    let notifys = document.createElement('section')
-    notifys.className = "fixed top-20 left-2"
-    notifys.setAttribute("id", "notifys")
-    document.body.appendChild(notifys)
-}
-
-function CreateNotify(status, mess){
-    let notify = document.createElement('div')
-    notify.className = "sm:max-w-[320px] max-w-[250px] w-full flex items-center sm:p-5 p-3 bg-white rounded-md sm:mb-4 mb-2 relative shadow-[3px_-3px_5px_#000000c1] animate-[scrollShow_1s_linear_forwards]"
-    switch (status){
-        case "true":
-            notify.innerHTML = `<i class='bx bxs-check-circle text-green-500 mr-[10px] sm:text-[35px] text-[25px]'></i>
-                    <h3 class="text-green-500 font-medium sm:text-xl text-base">${mess}</h3>
-                    <span class="absolute left-0 bottom-0 w-full h-1 animate-[countdown_2s_linear_forwards_0.5s] bg-green-500"></span>`
-            break;
-        case "false":
-            notify.innerHTML = `<i class='bx bxs-error text-red-500 mr-[10px] sm:text-[35px] text-[25px]'></i>
-                    <h3 class="text-red-500 font-medium sm:text-xl text-base">${mess}</h3>
-                    <span class="absolute left-0 bottom-0 w-full h-1 animate-[countdown_2s_linear_forwards_0.5s] bg-red-500"></span>`
-            break;
-    }
-    
-    document.getElementById('notifys').appendChild(notify)
-    setTimeout(function(){
-        notify.remove()
-    }, 3000)
 }
 
 function UpdateTotal(){
@@ -190,6 +239,8 @@ function LoadToCart(){
             cartItem.querySelector('input').value = item.quantity
         })
     }
+    
+    UpdateCartIcon();
 }
 
 function UpdateCartIcon(){

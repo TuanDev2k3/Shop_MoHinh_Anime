@@ -10,7 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-white min-h-screen">
-    <header class="md:py-3 py-2 contain bg-white w-full flex items-center justify-between fixed top-0 left-0 z-[10]">
+    <header class="md:py-3 py-2 contain bg-white w-full flex items-center justify-between fixed top-0 left-0 z-[50]">
         <i class='bx bx-menu text-4xl cursor-pointer hidden' id="menu"></i>
         <a href="#" class="flex items-center">
             <img src="./img/Logo.jpg" class="w-[45px] object-cover mb-2">
@@ -23,51 +23,37 @@
             <a href="./new-product.html" class="mx-5 text-xl relative">Mới về</a>
         </nav>
         <div class="icons">
-            <i class='bx bx-search-alt-2 mx-[10px] text-[28px] cursor-pointer'></i>
+            <i class='bx bx-search-alt-2 mx-[10px] text-[28px] cursor-pointer hidden'></i>
             <i class='bx bx-shopping-bag mx-[10px] text-[28px] cursor-pointer relative'></i>
             <i class='bx bx-user mx-[10px] text-[28px] cursor-pointer'></i>
         </div>
 
-        <!-- ADD TO MY CART -->
-        <section class="fixed top-0 min-h-screen max-w-[400px] w-full p-5 bg-white shadow-[-1px_0_10px_#aaa]" id="cart">
-            <h2 class="text-center text-[var(--main-color)] text-3xl font-semibold m-[2rem_0_1rem]">Giỏ hàng</h2>
-            <div class="flex flex-col overflow-y-scroll max-h-[60vh]" id="cart-content">
-                
-            </div>
-            <div class="flex justify-end mt-6 border-t border-[#000]">
-                <div class="text-[1.2rem] font-semibold my-4">Tổng</div>
-                <div class="text-[1.075rem] m-[1.1rem_0_0_0.7rem]" id="total">0₫</div>
-            </div>
-            <button class="bg-red-600 m-[1rem_auto] p-[12px_20px] w-2/4 text-center border-none outline-none 
-                    rounded-[2rem] text-white text-base font-medium cursor-pointer flex justify-center">Mua ngay</button>
-            <i class='bx bx-x mx-[10px] absolute top-4 right-3 text-[2rem] text-red-600 cursor-pointer'></i>
-        </section>
     </header>
 
-    <section class="bg-[url('./img/bg1.jpg')] w-full h-[600px] mt-[65px] 
+    <section class="bg-[url('./img/bg1.jpg')] w-full lg:h-[600px] sm:h-[500px] h-[200px] mt-[65px] 
             bg-cover bg-center ease-linear duration-1000" id="home">
     </section>
 
-    <section class="contain flex flex-wrap gap-10 text-center my-10">
-        <div class="p-[43px] rounded-[3rem] mx-1 bg-yellow-50 shadow-[0_0_10px_#95949460] flex-1 min-w-[250px]"> 
-            <img src="./img/c1.png" class="w-[60px] m-auto"> 
-            <h3 class="text-xl font-bold my-4">8:00 am - 9:00 pm</h3>
-            <span class="text-[#9e9e9e] text-lg">Working Hours</span>
+    <section class="contain flex justify-around text-center sm:my-10 m-[40px_0_0]">
+        <div class="grid place-content-center max-w-[250px] w-full sm:mx-3 mx-[6px] md:h-[240px] sm:h-[200px] h-[100px] md:rounded-[3rem] rounded-[5px] bg-yellow-50 shadow-[0_0_10px_#95949460]"> 
+            <img src="./img/c1.png" class="md:w-[60px] sm:w-[50px] w-[25px] m-auto"> 
+            <h3 class="md:text-xl sm:text-[16px] text-[9px] sm:font-bold font-semibold md:my-4 my-1">8:00 am - 9:00 pm</h3>
+            <span class="text-[#9e9e9e] md:text-lg sm:text-[14px] text-[8px]">Working Hours</span>
         </div>
-        <div class="p-[43px] rounded-[3rem] mx-1 bg-yellow-50 shadow-[0_0_10px_#95949460] flex-1 min-w-[250px]">
-            <img src="./img/c2.png" class="w-[60px] m-auto"> 
-            <h3 class="text-xl font-bold my-4">TuanDeV</h3> 
-            <span class="text-[#9e9e9e] text-lg">Get Directions</span>
+        <div class="grid place-content-center max-w-[250px] w-full sm:mx-3 mx-[6px] md:h-[240px] sm:h-[200px] h-[100px] md:rounded-[3rem] rounded-[5px] bg-yellow-50 shadow-[0_0_10px_#95949460]">
+            <img src="./img/c2.png" class="md:w-[60px] sm:w-[50px] w-[25px] m-auto"> 
+            <h3 class="md:text-xl sm:text-[16px] text-[9px] sm:font-bold font-semibold md:my-4 my-1">TuanDeV</h3> 
+            <span class="text-[#9e9e9e] md:text-lg sm:text-[14px] text-[8px]">Get Directions</span>
         </div>
-        <div class="p-[43px] rounded-[3rem] mx-1 bg-yellow-50 shadow-[0_0_10px_#95949460] flex-1 min-w-[250px]">
-            <img src="./img/c3.png" class="w-[60px] m-auto"> 
-            <h3 class="text-xl font-bold my-4">(0363) 565 234</h3>
-            <span class="text-[#9e9e9e] text-lg">Call Us Now</span>
+        <div class="grid place-content-center max-w-[250px] w-full sm:mx-3 mx-[6px] md:h-[240px] sm:h-[200px] h-[100px] md:rounded-[3rem] rounded-[5px] bg-yellow-50 shadow-[0_0_10px_#95949460]">
+            <img src="./img/c3.png" class="md:w-[60px] sm:w-[50px] w-[25px] m-auto"> 
+            <h3 class="md:text-xl sm:text-[16px] text-[9px] sm:font-bold font-semibold md:my-4 my-1">(0363) 565 234</h3>
+            <span class="text-[#9e9e9e] md:text-lg sm:text-[14px] text-[8px]">Call Us Now</span>
         </div>
     </section>
 
     <section class="contain my-16">
-        <h1 class="text-center text-[3.5rem] font-black mb-10">Giới Thiệu</h1>
+        <h1 class="text-center sm:text-[3.5rem] text-[45px] font-black sm:mb-10 mb-[20px]">Giới Thiệu</h1>
         <div class="text-[16px]">
             <div class="max-w-[400px] w-full float-left mx-4" id="infoImg">
                 <img src="./img/info.jpg" class="w-full object-cover object-center rounded-2xl" id="gallery">
@@ -78,7 +64,7 @@
                     <img src="./img/info4.jpg" class="object-cover object-center w-[20%] rounded-xl shadow-[0_0_15px_1px_#000]">
                 </div>
             </div>
-            <ul class="text-justify">
+            <ul class="text-justify sm:text-[16px] text-[14px]">
                 <li><span class="font-bold">Tên shop:</span> Mô Hình One Piece TuanDeV</li>
                 <li><span class="font-bold">Mô tả:</span> Chúng tôi tự hào là một shop chuyên cung cấp mô hình, bộ sưu tập và sản phẩm liên quan.
                     Đến thế giới đầy phiêu lưu và hành trình của băng hải tặc Mũ Rơm trong tác phẩm nổi tiếng "One Piece". </li>
@@ -118,15 +104,18 @@
         </ul>
         <ul class="text-white">
             <li class="font-extrabold mb-8 text-xl">KẾT NỐI VỚI CHÚNG TÔI</li>
-            <i class='bx bxl-facebook text-xl mx-[2px] cursor-pointer py-[2px] px-[5px] border-2 rounded-full'></i>
-            <i class='bx bxl-tiktok text-xl mx-[2px] cursor-pointer py-[2px] px-[5px] border-2 rounded-full'></i>
-            <i class='bx bxl-instagram text-xl mx-[2px] cursor-pointer py-[2px] px-[5px] border-2 rounded-full'></i>
-            <i class='bx bxl-youtube text-xl mx-[2px] cursor-pointer py-[2px] px-[5px] border-2 rounded-full'></i>
+            <i class='bx bxl-facebook text-xl mx-[2px] cursor-pointer py-[2px] px-[5px] border-2 rounded-full hover:text-black hover:bg-white duration-500'></i>
+            <i class='bx bxl-tiktok text-xl mx-[2px] cursor-pointer py-[2px] px-[5px] border-2 rounded-full hover:text-black hover:bg-white duration-500'></i>
+            <i class='bx bxl-instagram text-xl mx-[2px] cursor-pointer py-[2px] px-[5px] border-2 rounded-full hover:text-black hover:bg-white duration-500'></i>
+            <i class='bx bxl-youtube text-xl mx-[2px] cursor-pointer py-[2px] px-[5px] border-2 rounded-full hover:text-black hover:bg-white duration-500'></i>
         </ul>
         <div class="text-center py-3 bg-yellow-100 select-none text-black absolute left-0 bottom-0 w-full">
             © Deisgn by Uong Minh Khai - TuanDeV
         </div>
     </footer>
+
+
+
     <script src="./js/main.js"></script>
     <script>
         let home = document.getElementById('home')
@@ -136,7 +125,7 @@
         setInterval(()=>{
             home.style.backgroundImage = `url('./img/bg${currentImg}.jpg')`
             currentImg = (currentImg < 5) ? currentImg + 1 : 1
-        }, 3000)
+        }, 5000)
     </script>
 </body>
 </html>
