@@ -8,14 +8,14 @@ let listAccess = [
     },
     {
         name: "Áo Hoodie Zoro One Piece Phiên Bản Màu Đen Cực Chất",
-        image: "https://lzd-img-global.slatic.net/g/p/f0ac86fefd63fd6bdf8a77595afb3757.jpg_720x720q80.jpg",
+        image: "https://moveekbuddyshop.com/cdn/shop/products/hh_45921a1f-2a53-4395-8c69-429a7e746e7e_1200x.png?v=1613630169",
         type: "Hoodie",
         price: "150000"
     },
     {
         name: "Áo Hoodie In Hình One Piece 3D Thời Trang Cho Nam",
         type: "Hoodie",
-        image: "https://cf.shopee.vn/file/41ebd90c6def5ac834e60af85f937f5e",
+        image: "https://ae01.alicdn.com/kf/H7464ac155b2d4f8eb6364fc03ba6ae34Y.jpg?width=800&height=800&hash=1600",
         price: "200000"
     },
     {
@@ -103,6 +103,7 @@ let listAccess = [
 ]
 
 listAccess.forEach(access => AddProduct(access))
+PageIndex(1, 8)
 
 function AddProduct(product) {
     let proItem = document.createElement('div')
@@ -112,14 +113,16 @@ function AddProduct(product) {
                 <img src="${product.image}" 
                     class="w-full h-full object-cover object-top scale-100 hover:scale-125 duration-500">
             </div>
-            <h3 class="mb-4 mt-2 px-2 text-base cursor-pointer line-clamp-2">${product.name}</h3>
+            <h3 class="mb-4 mt-2 px-2 text-base cursor-pointer line-clamp-2 hover:text-gray-700">${product.name}</h3>
             <h4 class="px-2 pb-3 pt-4 text-[17px] border-t border-[#aaa] font-bold text-[#ff0000]">${FormatPrice(product.price)}₫</h4>
             <i class='bx bxs-plus-circle md:text-[32px] text-[28px] text-green-600 absolute bottom-[10px] right-2 cursor-pointer
              active:text-red-600 add-cart' title="Add To Cart"></i>`
     
     
     document.getElementById('products').appendChild(proItem)
-}
+    proItem.querySelector('i').addEventListener('click', AddCartClick)
+    proItem.querySelector('h3').addEventListener('click', AddToDetail)
+}   
 
 function FormatPrice(n) {
     return n.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
@@ -138,6 +141,7 @@ function SortType(type) {
 
     if (type === "All") {
         listAccess.forEach(product => AddProduct(product))
+        PageIndex(1, 8)
     }
 }
 

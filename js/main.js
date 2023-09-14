@@ -30,13 +30,6 @@ else {
     ready();  
 }
 function ready(){
-    // Add To cart
-    var addCart = document.getElementsByClassName('add-cart');
-    for (var i = 0; i < addCart.length; i++) {
-        var btn = addCart[i];
-        btn.addEventListener("click", AddCartClick);
-    }
-
     // Open And Close Account (Tai Khoan)
     document.querySelector('.icons i:nth-child(3)').addEventListener('click', ()=>{
         window.location.href = "./account.html"
@@ -45,6 +38,7 @@ function ready(){
     CreateNotifyBox();
     CreateSearchBox();
     CreateCartBox();
+    CreateDetailBox();
     LoadToCart();
 }
 
@@ -67,6 +61,11 @@ function CreateSearchBox(){
     <button class="w-[150px] text-white text-xl h-[50px] mx-auto bg-green-500 rounded-full 
     hover:bg-green-700" onclick="SearchData()">Search</button>`
     document.body.appendChild(search)
+    search.querySelector('input').addEventListener('keydown', e=>{
+        if (e.key === 'Enter'){
+            SearchData()
+        }
+    })
 
     // ========== CHUC NANG SEARCH ============
     document.querySelector('.icons i:nth-child(1)').addEventListener('click', ()=>{
@@ -125,6 +124,34 @@ function CreateNotify(status, mess){
     setTimeout(function(){
         notify.remove()
     }, 3000)
+}
+
+function CreateDetailBox() {
+    let detailbox = document.createElement('section')
+    detailbox.className = "p-[0_6%] fixed scale-50 opacity-0 pointer-events-none top-0 left-0 bg-[#fff] w-full min-h-screen z-[40] grid item-center"
+    detailbox.setAttribute('id', 'detailProduct')
+    detailbox.innerHTML = `<i class='bx bx-x absolute top-[20%] right-0 z-[50] md:text-[40px] text-[30px] bg-red-500 cursor-pointer text-white'></i>
+    <div class="relative w-full shadow-[0_0_5px_#000] flex gap-2 my-[74px]">
+    <div class="lg:w-[40%] w-[30%] h-full p-0">
+        <img src="https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-lj9o1lz56ut676" class="w-full h-full object-cover sm:object-center object-top">
+    </div>
+    <div class="lg:w-[60%] w-[70%] p-6">
+        <h5 class="text-blue-600 font-semibold text-[16px]">Shop mô hình TuanDeV</h5>
+        <h3 class="text-[35px] text-orange-950 my-3">Mô hình Ace Hỏa Quyền Chiến Đấu, Có Led, Cao 30 cm - Mô hình One Piece</h3>
+        <h4 class="text-[30px] text-red-600 font-semibold my-3">400.000₫</h4>
+
+        <li class="text-[16px] text-[#000]"><i class='bx bxs-check-shield text-green-500 text-xl align-middle'></i> Chất liệu: PVC</li>
+        <li class="text-[16px] text-[#000]"><i class='bx bxs-check-shield text-green-500 text-xl align-middle'></i> Box: Có hộp</li>
+        <li class="text-[16px] text-[#000]"><i class='bx bxs-check-shield text-green-500 text-xl align-middle'></i> Kiểu: Cố định, trang trí</li>
+        <li class="text-[16px] text-[#000]"><i class='bx bxs-check-shield text-green-500 text-xl align-middle'></i> Sản xuất: Việt Nam</li>
+        <li class="text-[16px] text-[#000]"><i class='bx bxs-check-shield text-green-500 text-xl align-middle'></i> Tình trạng: Còn mới</li>
+
+        <button class="md:my-6 my-3 md:w-[250px] w-[160px] md:text-[16px] text-[14px] h-[50px] bg-red-600 text-white font-semibold cursor-pointer hover:bg-red-700">Thêm vào giỏ hàng</button>
+    </div>
+    </div>`
+
+    document.body.appendChild(detailbox)
+    detailbox.querySelector('#detailProduct > i').addEventListener('click', () => detailbox.classList.remove('open'))
 }
 
 // Remove Cart Item
@@ -252,4 +279,51 @@ function UpdateCartIcon(){
         quantity += parseInt(quantityEle)
     })
     document.querySelector('.icons i:nth-child(2)').setAttribute('data-quantity', quantity)
+}
+
+function PageIndex(n, max) {
+    // Remove all Product
+    let products = document.querySelectorAll('#products > div')
+    products.forEach(product => product.classList.add('hidden'))
+    // load product theo page
+    let index = (n-1)*max
+    while (index < n*max) {
+        if(!products[index]){
+            return
+        }
+        products[index].classList.remove('hidden')
+        index++
+    }
+    // Create Page Icon
+    PageIcon(max)
+}
+
+function PageIcon(max) {
+    let pageIcon = document.createElement('div')
+    pageIcon.className = 'md:text-[40px] text-[30px] col-span-full text-right cursor-pointer'
+    pageIcon.innerHTML = `<button class="border-none outline-none mx-3 text-blue-600 hover:text-white" onclick="PageIndex('1', ${max})">
+                        <a href="#"><i class='bx bx-chevron-left rounded-full border-2 border-blue-500 hover:bg-blue-400 duration-500'></i></a></button>
+                        <button class="border-none outline-none mx-3 text-blue-600 hover:text-white" onclick="PageIndex('2', ${max})">
+                        <a href="#"><i class='bx bx-chevron-right rounded-full border-2 border-blue-500 hover:bg-blue-400 duration-500'></i></a></button>`
+    document.getElementById('products').appendChild(pageIcon)
+}
+
+// ==== Chi tiet san pham (Detail product) ======
+function AddToDetail(event){
+    var btn = event.target;
+    var Products = btn.parentElement;
+
+    var title = Products.querySelectorAll("h3")[0].innerHTML;
+    var price = Products.querySelectorAll("h4")[0].innerHTML;
+    var imgProduct = Products.querySelectorAll("img")[0].src;
+
+    let Detail = document.getElementById('detailProduct')
+    Detail.querySelector('h3').innerHTML = title
+    Detail.querySelector('h4').innerHTML = price
+    Detail.querySelector('img').src = imgProduct
+
+    Detail.classList.add('open')
+    Detail.querySelector('button').onclick = () =>{
+        AddProductToCart(title, price, imgProduct)
+    }
 }

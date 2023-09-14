@@ -31,6 +31,10 @@ function checkLength(input) {
         showError(input);
         return true
     }
+    else if (input.value.length > 15) {
+        showError(input);
+        return true
+    }
     else {
         showSuccess(input)
         return false

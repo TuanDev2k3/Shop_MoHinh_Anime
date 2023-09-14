@@ -152,7 +152,8 @@ let listProduct = [
 
 // Load product tu list vao website
 RanDomProduct()
-PageIndex(1)
+listProduct.forEach(product=>AddProduct(product))
+PageIndex(1, 12)
 // listProduct.forEach(pro => AddProduct(pro))
 
 function RanDomProduct() {
@@ -178,42 +179,18 @@ function AddProduct(product) {
                 <img src="${product.image}" 
                     class="w-full h-full object-cover object-top scale-100 hover:scale-125 duration-500">
             </div>
-            <h3 class="mb-4 mt-2 px-2 text-base cursor-pointer line-clamp-2">${product.name}</h3>
+            <h3 class="mb-4 mt-2 px-2 text-base cursor-pointer line-clamp-2 hover:text-gray-700">${product.name}</h3>
             <h4 class="px-2 pb-3 pt-4 text-[17px] border-t border-[#aaa] font-bold text-[#ff0000]">${FormatPrice(product.price)}₫</h4>
             <i class='bx bxs-plus-circle md:text-[32px] text-[28px] text-green-600 absolute bottom-[10px] right-2 cursor-pointer
-              active:text-red-600 add-cart' title="Add To Cart"></i>`
+              active:text-red-600' title="Add To Cart"></i>`
     
     document.getElementById('products').appendChild(proItem)
+    proItem.querySelector('i').addEventListener('click', AddCartClick)
+    proItem.querySelector('h3').addEventListener('click', AddToDetail)
 }
 
 function FormatPrice(n) {
     return n.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
-}
-
-function PageIndex(n) {
-    // Remove all Product
-    let content = document.getElementById('products')
-    while(content.hasChildNodes()){
-        content.removeChild(content.firstChild);
-    }
-    // load product theo page
-    let index = (n-1)*12
-    while (index < n*12 && listProduct[index]) {
-        AddProduct(listProduct[index])
-        index++
-    }
-    // Create Page Icon
-    PageIcon()
-}
-
-function PageIcon() {
-    let pageIcon = document.createElement('div')
-    pageIcon.className = 'md:text-[40px] text-[30px] col-span-full text-right cursor-pointer'
-    pageIcon.innerHTML = `<button class="border-none outline-none mx-3 text-blue-600 hover:text-white" onclick="PageIndex('1')">
-                        <a href="#"><i class='bx bx-chevron-left rounded-full border-2 border-blue-500 hover:bg-blue-400 duration-500'></i></a></button>
-                        <button class="border-none outline-none mx-3 text-blue-600 hover:text-white" onclick="PageIndex('2')">
-                        <a href="#"><i class='bx bx-chevron-right rounded-full border-2 border-blue-500 hover:bg-blue-400 duration-500'></i></a></button>`
-    document.getElementById('products').appendChild(pageIcon)
 }
 
 // Sort theo Type
@@ -228,7 +205,8 @@ function SortType(type) {
     })
 
     if (type === "All") {
-        PageIndex(1)
+        listProduct.forEach(product=>AddProduct(product))
+        PageIndex(1, 12)
     }
 }
 // Sort theo Price (Gia)
@@ -264,12 +242,14 @@ function SortPrice(price){
         }
         case "price++": {
             listProduct.sort((a,b) => (a.price-b.price));
-            PageIndex(1)
+            listProduct.forEach(product=>AddProduct(product))
+            PageIndex(1, 12)
             break
         }
         case "price--": {
             listProduct.sort((a,b) => (b.price-a.price));
-            PageIndex(1)
+            listProduct.forEach(product=>AddProduct(product))
+            PageIndex(1, 12)
             break
         }
 
