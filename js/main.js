@@ -131,7 +131,7 @@ function CreateDetailBox() {
     detailbox.className = "p-[0_6%] fixed scale-50 opacity-0 pointer-events-none top-0 left-0 bg-[#fff] w-full min-h-screen z-[40] grid item-center"
     detailbox.setAttribute('id', 'detailProduct')
     detailbox.innerHTML = `<i class='bx bx-x absolute top-[20%] right-0 z-[50] md:text-[40px] text-[30px] bg-red-500 cursor-pointer text-white'></i>
-    <div class="relative w-full shadow-[0_0_5px_#000] flex gap-2 my-[74px]">
+    <div class="relative w-full max-h-[550px] shadow-[0_0_5px_#000] flex sm:gap-2 gap-0 my-[74px]">
     <div class="lg:w-[40%] w-[30%] h-full p-0">
         <img src="https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-lj9o1lz56ut676" class="w-full h-full object-cover sm:object-center object-top">
     </div>
