@@ -21,6 +21,25 @@ menu.addEventListener('click', ()=>{
     document.querySelector('nav').classList.toggle('open')
 })
 
+// Add San Pham Tu Data.js vao trang HTML
+function AddProduct(product) {
+    let proItem = document.createElement('div')
+    proItem.className = 'bg-white shadow-[0_0_15px_#bbb] max-h-[330px] hover:shadow-[0px_0px_10px_#454545] animate-[fadeIn_.5s_linear] duration-300 relative'
+    proItem.innerHTML = `
+            <div class="w-full max-h-[200px] overflow-hidden">
+                <img src="${product.image}" 
+                    class="w-full h-full object-cover object-top scale-100 hover:scale-125 duration-500">
+            </div>
+            <h3 class="mb-4 mt-2 px-2 text-base cursor-pointer line-clamp-2 hover:text-gray-700">${product.name}</h3>
+            <h4 class="px-2 pb-3 pt-4 text-[17px] border-t border-[#aaa] font-bold text-[#ff0000]">${FormatPrice(product.price)}₫</h4>
+            <i class='bx bxs-plus-circle md:text-[32px] text-[28px] text-green-600 absolute bottom-[10px] right-2 cursor-pointer
+              active:text-red-600' title="Add To Cart"></i>`
+    
+    document.getElementById('products').appendChild(proItem)
+    proItem.querySelector('i').addEventListener('click', AddCartClick)
+    proItem.querySelector('h3').addEventListener('click', AddToDetail)
+}
+
 //============ ADD TO CART ===========
 
 if (document.readyState == "loading"){

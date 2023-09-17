@@ -341,24 +341,23 @@ footer{
     #detailProduct{
         padding: 0;
     }
-    #detailProduct div{
+    #detailProduct > div{
         flex-direction: column !important;
-        max-height: 100vh;
+        max-height: 90vh;
+        overflow-y: scroll;
         box-shadow: none;
     }
     #detailProduct div > div{
         width: 100%;
     }
-    #detailProduct div > div:nth-child(1){
-       height: 40%;
+    #detailProduct > div > div:nth-child(1){
+       height: 50%;
     }
-    #detailProduct div > div:nth-child(2){
-       max-height: 43vh;
-       overflow-y: scroll;
-       padding: 0 10px 20px;
+    #detailProduct > div > div:nth-child(2){
+       padding: 0 10px 50px;
     }
     #detailProduct h5{
-        font-size: 12px;
+        font-size: 14px;
         margin-top: 10px;
     }
     #detailProduct h3{
@@ -426,9 +425,9 @@ footer{
         font-size: 40px;
         right: 15px;
     }
-    #detailProduct div > div:nth-child(2){
-        max-height: 46vh;
-     }
+    #detailProduct > div > div:nth-child(1){
+        height: 40%;
+    }
     #detailProduct > div > div:nth-child(2) button{
         width: 180px;
         height: 38px;
@@ -463,6 +462,9 @@ footer{
         font-size: 15px;
     }
     #detailProduct h3{
-        font-size: 23px;
+        font-size: 21px;
+    }
+    #detailProduct h4{
+        font-size: 18px;
     }
 }
