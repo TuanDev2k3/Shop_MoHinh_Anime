@@ -30,7 +30,7 @@ function AddProduct(product) {
                 <img src="${product.image}" 
                     class="w-full h-full object-cover object-top scale-100 hover:scale-125 duration-500">
             </div>
-            <h3 class="mb-4 mt-2 px-2 text-base cursor-pointer line-clamp-2 hover:text-gray-700">${product.name}</h3>
+            <h3 class="mb-4 mt-2 px-2 text-base cursor-pointer line-clamp-2 hover:text-gray-700" title="${product.name}">${product.name}</h3>
             <h4 class="px-2 pb-3 pt-4 text-[17px] border-t border-[#aaa] font-bold text-[#ff0000]">${FormatPrice(product.price)}₫</h4>
             <i class='bx bxs-plus-circle md:text-[32px] text-[28px] text-green-600 absolute bottom-[10px] right-2 cursor-pointer
               active:text-red-600' title="Add To Cart"></i>`
@@ -107,12 +107,13 @@ function CreateCartBox() {
     </div>
     <div class="flex justify-end mt-6 border-t border-[#000]">
         <div class="text-[1.2rem] font-semibold my-4">Tổng</div>
-        <div class="text-[1.075rem] m-[1.1rem_0_0_0.7rem]" id="total">0₫</div>
+        <div class="text-[1.075rem] font-medium m-[1.1rem_0_0_0.7rem]" id="total">0₫</div>
     </div>
     <button class="bg-red-600 m-[1rem_auto] p-[12px_20px] w-2/4 text-center border-none outline-none 
-            rounded-[2rem] text-white text-base font-medium cursor-pointer flex justify-center">Mua ngay</button>
+            rounded-[2rem] text-white text-base font-medium cursor-pointer flex justify-center hover:bg-blue-700">Mua ngay</button>
     <i class='bx bx-x mx-[10px] absolute top-4 right-3 text-[2rem] text-red-600 cursor-pointer'></i>`
     document.querySelector('header').appendChild(cart)
+    cart.querySelector('button').addEventListener('click', KTraThanhToan)
 
     // OPEN OR CLOSE CART
     document.querySelector('.icons i:nth-child(2)').addEventListener('click',()=>{
@@ -173,6 +174,25 @@ function CreateDetailBox() {
     detailbox.querySelector('#detailProduct > i').addEventListener('click', () => detailbox.classList.remove('open'))
 }
 
+// Kiem tra cac dieu kien de thanh toan (dang nhap ?, cart have san pham ? )
+function KTraThanhToan(){
+    let isLogin = localStorage.getItem('isLogin')
+        if (isLogin == "false"){
+            CreateNotify("false", "Bạn chưa đăng nhập");
+            setTimeout(()=>{
+                window.location.href = "./account.html"
+            }, 2000)
+        }
+        else 
+        {
+            var cartBoxs = cart.querySelectorAll('#cart-content > div')
+            if (cartBoxs.length > 0)
+                window.location.href = "./pays.html"
+            else
+                CreateNotify("false", "Giỏ hàng đang trống");
+        }
+}
+
 // Remove Cart Item
 function RemoveCart(e) {
     let btnClick = e.target.parentElement
@@ -216,17 +236,18 @@ function AddProductToCart(title, price, imgProduct){
         }
     }
     
-    var cartBoxContent = `<img src="${imgProduct}" class="w-[100px] h-[100px] object-cover object-center p-2">
+    var cartBoxContent = `<img src="${imgProduct}" class="w-[100px] h-[100px] object-cover object-center p-2" title="Xem chi tiết">
                             <div>
                                 <h3 class="text-base font-semibold uppercase line-clamp-1">${title}</h3>
                                 <h4 class="font-medium">${price}</h4>
                                 <input type="number" value="1" class="text-base rounded-sm border border-black outline-red-500 w-[2.5rem] text-center">
                             </div>
-                            <i class='bx bx-trash text-[1.8rem] text-red-600 cursor-pointer'></i>`
+                            <i class='bx bx-trash text-[1.8rem] text-red-600 cursor-pointer' title="Xóa"></i>`
     CartShopBox.innerHTML = cartBoxContent;
     CartItems.appendChild(CartShopBox);
     CartShopBox.querySelectorAll('.bx-trash')[0].addEventListener('click', RemoveCart);
     CartShopBox.querySelectorAll('input')[0].addEventListener('change', quantityChanged);
+    CartShopBox.querySelector('img').addEventListener('click', AddToDetail)
 
     UpdateTotal();
     SaveCart();
@@ -285,8 +306,8 @@ function LoadToCart(){
             cartItem.querySelector('input').value = item.quantity
         })
     }
-    
     UpdateCartIcon();
+    UpdateTotal();
 }
 
 function UpdateCartIcon(){
@@ -298,6 +319,7 @@ function UpdateCartIcon(){
         quantity += parseInt(quantityEle)
     })
     document.querySelector('.icons i:nth-child(2)').setAttribute('data-quantity', quantity)
+    SaveCart()
 }
 
 function PageIndex(n, max) {
@@ -345,4 +367,5 @@ function AddToDetail(event){
     Detail.querySelector('button').onclick = () =>{
         AddProductToCart(title, price, imgProduct)
     }
+    document.getElementById('cart').classList.remove('open')
 }

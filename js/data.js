@@ -122,7 +122,7 @@ let listProduct = [
         name: "Mô hình songoku bản nặng vô cực hàng nét siêu chất - Mô hình Anime Dragon",
         image: "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljx20oekl0jm63",
         type: "Dragon Ball",
-        price: "5290000"
+        price: "1290000"
     },
     {
         name: "Mô Hình Cao Cấp Vegeta Chiến Đấu 3 Đầu Thay Thế Cao 41 cm Có LED - Mô Hình Dragon Ball Super",
@@ -143,7 +143,7 @@ let listProduct = [
         price: "915000"
     },
     {
-        name: "Mô hình Kid Buu có base cao 30cm, majin buu siêu nét - Mô hình dragon ball",
+        name: "Mô hình Kid Buu có base cao 30cm, MaJin Buu siêu nét - Mô hình dragon ball",
         image: "https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lk6puj3myi7o0d",
         type: "Dragon Ball",
         price: "550000"
@@ -216,7 +216,7 @@ let listAccess = [
     {
         name: "Mô Hình Roronoa Zoro Chibi lắc đầu",
         type: "MH_Mini",
-        image: "https://salt.tikicdn.com/cache/w400/ts/product/9d/ea/f7/84b9011fab798e71d74d0edb3db5a119.jpg",
+        image: "https://cf.shopee.vn/file/42778d19dbfafe6aa52e96defb0c5b92",
         price: "120000"
     },
     // Moc khoa
@@ -235,7 +235,7 @@ let listAccess = [
     {
         name: "Móc khóa One Piece mũ Luffy Kẽm Hợp Kim.",
         type: "Key",
-        image: "https://tabinoshop.com/wp-content/uploads/2020/01/moc-khoa-mu-luffy-one-piece-1.jpg",
+        image: "https://down-vn.img.susercontent.com/file/3d01462d177221f357a4411239f8fbec",
         price: "60000"
     },
     

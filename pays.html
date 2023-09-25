@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/Logo.jpg">
+    <link rel="stylesheet" href="./style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Mô hình Tuấn Dev - Thanh Toán Đơn Hàng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white min-h-screen">
+    <header class="md:py-3 py-2 contain bg-white w-full flex items-center justify-between fixed top-0 left-0 z-[50]">
+        <i class='bx bx-menu text-4xl cursor-pointer hidden' id="menu"></i>
+        <a href="#" class="flex items-center">
+            <img src="./img/Logo.jpg" class="w-[45px] object-cover mb-2">
+            <span class="text-[28px] font-bold text-[var(--main-color)] ml-1">TuanDeV</span>
+        </a>
+        <nav>
+            <a href="./index.html" class="mx-5 text-xl relative">Trang chủ</a>
+            <a href="./product.html" class="mx-5 text-xl relative">Sản phẩm</a>
+            <a href="./access.html" class="mx-5 text-xl relative">Phụ kiện</a>
+            <a href="./new-product.html" class="mx-5 text-xl relative">Mới về</a>
+        </nav>
+        <div class="icons">
+            <i class='bx bx-search-alt-2 mx-[10px] text-[28px] cursor-pointer hidden'></i>
+            <i class='bx bx-shopping-bag mx-[10px] text-[28px] cursor-pointer relative'></i>
+            <i class='bx bx-user mx-[10px] text-[28px] cursor-pointer'></i>
+        </div>
+
+    </header>
+
+    <section class="bg-[url('https://beegaming.com.vn/wp-content/uploads/2023/04/mo-hinh-onepiece-gia-re-beegaming-1-scaled.jpg')] md:w-[60%] w-[70%] xl:h-[250px] md:h-[150px] h-[100px] mt-[90px] mx-auto
+        bg-cover bg-center rounded-md shadow-[5px_3px_20px_#000]">
+    </section>
+
+    <section class="contain md:mt-10 mt-6 grid grid-cols-2 gap-5 items-start" id="pay">
+        <article class="shadow-[0_0_15px_#aaa]">
+            <h1 class="w-full text-center sm:text-[20px] text-[18px] py-3 font-bold border-b border-[#aaa]">Danh sách sản phẩm</h1>
+            <div class="max-h-[535px] overflow-y-scroll mb-2" id="pays-content"></div>
+            <div class="bg-green-500 text-white p-[15px_20px] font-semibold sm:text-[17px] text-[15px] flex justify-between" id="pricePay">Tổng thanh toán: <span>0₫</span></div>
+        </article>
+
+        <article class="shadow-[0_0_15px_#aaa]">
+            <h1 class="w-full text-center sm:text-[20px] text-[18px] py-3 font-bold sm:mb-[10px] mb-[0] border-b border-[#aaa]">Thông tin khách hàng</h1>
+            <div class="sm:p-5 p-2 flex flex-col">
+                <label class="sm:text-[18px] text-[15px] font-semibold text-red-900">Tên khách hàng (*)</label>
+                <input type="text" class="border border-black sm:text-[16px] text-[14px] sm:my-3 my-2 sm:h-[45px] h-[35px] outline-none py-2 px-3" placeholder="Tên khách hàng">
+                <label class="sm:text-[18px] text-[15px] font-semibold text-red-900">Địa chỉ nhận hàng (*)</label>
+                <input type="text" class="border border-black sm:text-[16px] text-[14px] sm:my-3 my-2 sm:h-[45px] h-[35px] outline-none py-2 px-3" placeholder="Địa chỉ nhận hàng">
+                <label class="sm:text-[18px] text-[15px] font-semibold text-red-900">Số điện thoại (*)</label>
+                <input type="text" class="border border-black sm:text-[16px] text-[14px] sm:my-3 my-2 sm:h-[45px] h-[35px] outline-none py-2 px-3" placeholder="Số điện thoại">
+                <label class="sm:text-[18px] text-[15px] font-semibold text-red-900">Email (*)</label>
+                <input type="email" class="border border-black sm:text-[16px] text-[14px] sm:my-3 my-2 sm:h-[45px] h-[35px] outline-none py-2 px-3" placeholder="Email">
+                <h5 class="text-red-600 sm:text-[16px] text-[13px]">** Lưu ý: Vui lòng nhập thông tin đầy đủ và chính xác nhất để thuận tiện cho việc vận chuyển đơn hàng.</h5>
+
+                <button class="bg-red-600 sm:my-[2rem] my-[1.5rem] sm:p-[12px_20px] p-[10px] w-full text-center border-none outline-none 
+                rounded-md text-white sm:text-lg text-[15px] font-medium cursor-pointer flex justify-center hover:bg-red-700"
+                id="BtnPay">Đặt hàng</button>   
+            </div>
+        </article>
+
+    </section>
+
+    <footer class="contain min-h-[380px] py-10 w-full mt-[100px] bg-cover bg-center shadow-[-1px_0_10px_#000] grid grid-cols-4 gap-[3rem] relative">
+        <ul class="text-white">
+            <li class="font-extrabold mb-8 text-xl">WEBSITE THUỘC SỞ HỮU</li>
+            <li class="text-[17px] py-3 border-b border-[#aaaaaa50] font-thin">TuanDeV - Mô hình anime</li>
+            <li class="text-[17px] py-3 border-b border-[#aaaaaa50] font-thin">Long Thanh - Dong Nai</li>
+            <li class="text-[17px] py-3 border-b border-[#aaaaaa50] font-thin">Hotline: (0363) 565 234</li>
+            <li class="text-[17px] py-3 border-b border-[#aaaaaa50] font-thin">Email: tuandev@gmail.com</li>
+        </ul>
+        <ul class="text-white">
+            <li class="font-extrabold mb-8 text-xl">DANH MỤC SẢN PHẨM</li>
+            <li class="text-[17px] py-3 border-b border-[#aaaaaa50] font-thin">Mô hình Anime</li>
+            <li class="text-[17px] py-3 border-b border-[#aaaaaa50] font-thin">Áo Hoodie Anime</li>
+            <li class="text-[17px] py-3 border-b border-[#aaaaaa50] font-thin">Game Anime</li>
+        </ul>
+        <ul class="text-white">
+            <li class="font-extrabold mb-8 text-xl">LIÊN HỆ</li>
+            <li class="text-[17px] py-3 border-b border-[#aaaaaa50] font-thin">Chính sách bảo hành</li>
+            <li class="text-[17px] py-3 border-b border-[#aaaaaa50] font-thin">Chính sách đổi trả</li>
+            <li class="text-[17px] py-3 border-b border-[#aaaaaa50] font-thin">Chính sách vận chuyển</li>
+            <li class="text-[17px] py-3 border-b border-[#aaaaaa50] font-thin">Chính sách bảo mật</li>
+        </ul>
+        <ul class="text-white">
+            <li class="font-extrabold mb-8 text-xl">KẾT NỐI VỚI CHÚNG TÔI</li>
+            <i class='bx bxl-facebook text-xl mx-[2px] cursor-pointer py-[2px] px-[5px] border-2 rounded-full hover:text-black hover:bg-white duration-500'></i>
+            <i class='bx bxl-tiktok text-xl mx-[2px] cursor-pointer py-[2px] px-[5px] border-2 rounded-full hover:text-black hover:bg-white duration-500'></i>
+            <i class='bx bxl-instagram text-xl mx-[2px] cursor-pointer py-[2px] px-[5px] border-2 rounded-full hover:text-black hover:bg-white duration-500'></i>
+            <i class='bx bxl-youtube text-xl mx-[2px] cursor-pointer py-[2px] px-[5px] border-2 rounded-full hover:text-black hover:bg-white duration-500'></i>
+        </ul>
+        <div class="text-center py-3 bg-yellow-100 select-none text-black absolute left-0 bottom-0 w-full">
+            © Deisgn by Uong Minh Khai - TuanDeV
+        </div>
+    </footer>
+
+
+
+    <script src="./js/main.js"></script>
+    <script src="./js/pays.js"></script>
+</body>
+</html>

@@ -229,6 +229,9 @@ footer{
     #detailProduct > div{
         max-height: 400px;
     }
+    #pay{
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
 }
 @media screen and (max-width: 650px){
     #infoImg{
@@ -431,6 +434,15 @@ footer{
     #detailProduct > div > div:nth-child(2) button{
         width: 180px;
         height: 38px;
+    }
+    #pay h3{
+        font-size: 14px;
+    }
+    #pay h4, #pay span{
+        font-size: 12px;
+    }
+    #pricePay span{
+        font-size: 14px;
     }
 }
 @media screen and (max-width: 340px){
