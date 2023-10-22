@@ -112,6 +112,22 @@ footer{
     }
    
 }
+@keyframes loader {
+    0% {
+      transform: scaleY(0.1);
+      background: #1e1e1e;
+    }
+    50% {
+      transform: scaleY(1);
+      background: white;
+    }
+    100% {
+      transform: scaleY(0.1);
+      background: #1e1e1e;
+    }
+}
+
+/*==== RPONSIVE =====*/
 @media screen and (max-width: 1200px){
     #detailProduct{
         padding: 0 5px;

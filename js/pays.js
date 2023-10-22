@@ -37,6 +37,7 @@ function AddProductToPays(title, price, img, quantity){
 
     Content.appendChild(payItem)
     document.querySelector('#pricePay span').innerHTML = document.getElementById('total').innerHTML
+    document.querySelector('#pay-success h3 span').innerHTML = "#" + document.getElementById('total').innerHTML
 }
 
 function ThanhToan(e){
@@ -55,7 +56,11 @@ function ThanhToan(e){
     while (CartContent.hasChildNodes()){
         CartContent.removeChild(CartContent.firstChild)
     }
+    CreateLoader();
     UpdateTotal();
     SaveCart();
-    window.location.href = "./index.html"
+    document.getElementById('loader').classList.remove('hidden')
+    document.getElementById('loader').classList.add('flex')
+    document.getElementById('pay-success').classList.remove('hidden')
+    document.getElementById('pay-success').classList.add('grid')
 }

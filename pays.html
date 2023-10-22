@@ -62,6 +62,21 @@
 
     </section>
 
+    <!-- Thanh Toan Thanh Cong -->
+    <section class="fixed top-0 left-0 bg-green-200 w-full min-h-screen z-50 grid place-content-center" id="pay-success">
+        <!-- Success -->
+        <img src="./img/success.png" class="md:w-[150px] sm:w-[120px] w-[90px] object-cover mx-auto">
+        <h1 class="md:text-[45px] sm:text-[30px] text-[22px] font-bold text-center my-2 text-red-600">Đặt hàng thành công !!</h1>
+        <h3 class="text-[#000] sm:text-[20px] text-[14px] text-center mx-3 font-medium">Chúng tôi sẽ liên hệ với Quý khách để xác nhận đơn hàng sớm nhất.</h3>
+        <h3 class="text-[#000] sm:text-[18px] text-[13px] text-center mx-3 mt-2 font-medium">Vui lòng chuẩn bị <span class="text-blue-600"></span> để thanh toán khi nhận hàng</h3>
+        <div class="flex gap-5 sm:mt-6 mt-4 mx-auto">
+            <button class="bg-white border-2 text-red-600 border-red-600 md:w-[160px] sm:w-[140px] w-[115px] sm:text-base text-[12px] sm:h-[45px] h-[32px] rounded-[5px] ease-in duration-300">
+            Chi tiết đơn hàng</button>
+            <button class="bg-red-600 text-white md:w-[160px] sm:w-[140px] w-[115px] sm:text-base text-[12px] sm:h-[45px] h-[32px] rounded-[5px] ease-in duration-300"
+            onclick="window.location.href = './product.html'">Tiếp tục mua hàng</button>
+        </div>
+    </section>
+
     <footer class="contain min-h-[380px] py-10 w-full mt-[100px] bg-cover bg-center shadow-[-1px_0_10px_#000] grid grid-cols-4 gap-[3rem] relative">
         <ul class="text-white">
             <li class="font-extrabold mb-8 text-xl">WEBSITE THUỘC SỞ HỮU</li>
@@ -95,6 +110,8 @@
         </div>
     </footer>
 
+        <!-- Loader -->
+        <section class="fixed top-0 left-0 bg-[#1e1e1e] w-full min-h-screen z-50 flex items-center justify-center gap-1" id="loader"></section>
 
 
     <script src="./js/main.js"></script>

@@ -54,6 +54,7 @@ function ready(){
         window.location.href = "./account.html"
     })
 
+    CreateLoader();
     CreateNotifyBox();
     CreateSearchBox();
     CreateCartBox();
@@ -67,6 +68,23 @@ function CreateNotifyBox(){
     notifys.className = "fixed top-20 left-2 z-50"
     notifys.setAttribute("id", "notifys")
     document.body.appendChild(notifys)
+}
+
+function CreateLoader(){
+    let load = document.getElementById('loader')
+    load.innerHTML = ` <div class="md:w-[12px] w-[6px] md:h-[75px] h-[50px] inline-block origin-[bottom_center] rounded-[20px] animate-[loader_1.2s_linear_3_0.1s]"></div>
+            <div class="md:w-[12px] w-[6px] md:h-[75px] h-[50px] inline-block origin-[bottom_center] rounded-[20px] animate-[loader_1.2s_linear_infinite_0.2s]"></div>
+            <div class="md:w-[12px] w-[6px] md:h-[75px] h-[50px] inline-block origin-[bottom_center] rounded-[20px] animate-[loader_1.2s_linear_infinite_0.3s]"></div>
+            <div class="md:w-[12px] w-[6px] md:h-[75px] h-[50px] inline-block origin-[bottom_center] rounded-[20px] animate-[loader_1.2s_linear_infinite_0.4s]"></div>
+            <div class="md:w-[12px] w-[6px] md:h-[75px] h-[50px] inline-block origin-[bottom_center] rounded-[20px] animate-[loader_1.2s_linear_infinite_0.5s]"></div>
+            <div class="md:w-[12px] w-[6px] md:h-[75px] h-[50px] inline-block origin-[bottom_center] rounded-[20px] animate-[loader_1.2s_linear_infinite_0.6s]"></div>
+            <div class="md:w-[12px] w-[6px] md:h-[75px] h-[50px] inline-block origin-[bottom_center] rounded-[20px] animate-[loader_1.2s_linear_infinite_0.7s]"></div>
+            <div class="md:w-[12px] w-[6px] md:h-[75px] h-[50px] inline-block origin-[bottom_center] rounded-[20px] animate-[loader_1.2s_linear_infinite_0.8s]"></div>`
+
+    setTimeout(function(){
+        document.getElementById('loader').classList.remove('flex')
+        document.getElementById('loader').classList.add('hidden')
+    }, 3200)
 }
 
 function CreateSearchBox(){
@@ -173,6 +191,7 @@ function CreateDetailBox() {
     document.body.appendChild(detailbox)
     detailbox.querySelector('#detailProduct > i').addEventListener('click', () => detailbox.classList.remove('open'))
 }
+
 
 // Kiem tra cac dieu kien de thanh toan (dang nhap ?, cart have san pham ? )
 function KTraThanhToan(){
