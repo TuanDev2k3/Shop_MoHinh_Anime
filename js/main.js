@@ -84,7 +84,7 @@ function CreateLoader(){
     setTimeout(function(){
         document.getElementById('loader').classList.remove('flex')
         document.getElementById('loader').classList.add('hidden')
-    }, 3200)
+    }, 1250)
 }
 
 function CreateSearchBox(){
